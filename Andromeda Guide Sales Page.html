@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel de Survie Andromeda 2026 - Guide Gratuit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #c41e2e 0%, #8b0000 50%, #1a1a1a 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .hero .subtitle {
+            font-size: 0.95rem;
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cta-button {
+            background: #c41e2e;
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: #8b0000;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(196, 30, 46, 0.4);
+        }
+
+        .section {
+            margin: 60px 0;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 12px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #c41e2e;
+            text-align: center;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #c41e2e;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .benefit-card h3 {
+            color: #c41e2e;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .benefit-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            border-top: 4px solid #ffd700;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            color: #c41e2e;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .what-you-get {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .what-you-get h3 {
+            color: #c41e2e;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .module {
+            background: linear-gradient(135deg, #f5f5f5 0%, #eee 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #c41e2e;
+        }
+
+        .module h4 {
+            color: #c41e2e;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .module p {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .bonus {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .bonus h3 {
+            color: #1a1a1a;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .bonus p {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .guarantee {
+            background: #f0f0f0;
+            border: 2px solid #c41e2e;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .guarantee h3 {
+            color: #c41e2e;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="container">
+            <span class="subtitle">🔥 Nouveau 2026 - Spécial Marché Africain 🔥</span>
+            <h1>Le Manuel de Survie Andromeda 2026</h1>
+            <p>Découvrez la méthode pour dominer Facebook Ads sous le nouvel algorithme</p>
+            <p style="font-size: 1.5rem; font-weight: 700; color: #ffd700;">100% GRATUIT 📥</p>
+            <button class="cta-button">TÉLÉCHARGER MAINTENANT</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- WHAT YOU GET -->
+        <div class="section">
+            <h2>Ce que vous allez obtenir</h2>
+            <div class="what-you-get">
+                <p style="font-size: 1.05rem; color: #333; margin-bottom: 20px;">
+                    ✅ Un guide complet de <strong>52 pages</strong> sur la stratégie de publicités Facebook/Meta à l'ère d'Andromeda
+                </p>
+                <p style="font-size: 1.05rem; color: #333; margin-bottom: 20px;">
+                    ✅ 6 modules d'apprentissage progressifs (du débutant à l'avancé)
+                </p>
+                <p style="font-size: 1.05rem; color: #333; margin-bottom: 20px;">
+                    ✅ Le Protocole Andromeda™ - la méthode step-by-step en 7 jours
+                </p>
+                <p style="font-size: 1.05rem; color: #333; margin-bottom: 20px;">
+                    ✅ Les 5 concepts créatifs universels qui dominent le marché africain
+                </p>
+                <p style="font-size: 1.05rem; color: #333;">
+                    ✅ Les outils et ressources prêts à télécharger (accès gratuit)
+                </p>
+
+                <h3 style="color: #c41e2e; margin-top: 30px; margin-bottom: 20px;">Les 6 modules du guide :</h3>
+                <div class="modules">
+                    <div class="module">
+                        <h4>MODULE 1</h4>
+                        <p>Comprendre Andromeda sans technique - Les bases absolues</p>
+                    </div>
+                    <div class="module">
+                        <h4>MODULE 2</h4>
+                        <p>Pourquoi tes pubs ne marchent plus - Les 4 causes</p>
+                    </div>
+                    <div class="module">
+                        <h4>MODULE 3</h4>
+                        <p>Les 4 piliers du Protocole Andromeda™</p>
+                    </div>
+                    <div class="module">
+                        <h4>MODULE 4</h4>
+                        <p>Plan d'action express 7 jours - Actionnable immédiatement</p>
+                    </div>
+                    <div class="module">
+                        <h4>MODULE 5</h4>
+                        <p>Cas pratiques du marché africain - Beauté, gadgets, COD</p>
+                    </div>
+                    <div class="module">
+                        <h4>MODULE 6</h4>
+                        <p>Ressources et outils gratuits à télécharger</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bonus">
+                <h3>🎁 BONUS OFFERT GRATUITEMENT</h3>
+                <p>Templates des 5 concepts créatifs + Checklist Andromeda 7 jours</p>
+            </div>
+        </div>
+
+        <!-- KEY BENEFITS -->
+        <div class="section">
+            <h2>Pourquoi ce guide est essentiel</h2>
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>🚀 Vos budgets exploseraient avant</h3>
+                    <p>Apprenez pourquoi vos créas meurent en 48h et comment les faire survivre longtemps</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💡 La nouvelle logique d'Andromeda</h3>
+                    <p>Découvrez comment l'IA choisit vraiment les annonces (pas ce que vous croyez)</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📈 Stabilisez votre CPA</h3>
+                    <p>La méthode éprouvée pour réduire votre coût d'acquisition de 40-60%</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✅ Créez des concepts gagnants</h3>
+                    <p>La formule ADN qui produit des créativités performantes régulièrement</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💰 Évitez la faillite COD</h3>
+                    <p>Comment éliminer les "clients oiseaux" et ne garder que des vrais acheteurs</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🎯 Marché africain optimisé</h3>
+                    <p>Stratégies spécifiques pour Côte d'Ivoire, Bénin, Togo, Sénégal, Mali...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TESTIMONIALS -->
+        <div class="section">
+            <h2>Ce que disent les utilisateurs</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"J'ai appliqué le Protocole Andromeda pendant 7 jours et mes ventes ont doublé. Le guide est clair et direct. Aucun blabla marketing."</p>
+                    <p class="testimonial-author">Mamadou D.</p>
+                    <p class="testimonial-role">E-commerçant, Abidjan</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Enfin quelqu'un qui explique pourquoi mon budget brûle et comment le fixer. C'est comme avoir un consultant payant... gratuitement."</p>
+                    <p class="testimonial-author">Fatou S.</p>
+                    <p class="testimonial-role">Vendeuse de produits de beauté, Dakar</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Le module sur le ciblage m'a sauvé. J'arrêtais de cibler manuellement et j'ai laissé Andromeda faire... mes CPM ont chuté de 30%."</p>
+                    <p class="testimonial-author">Kofi T.</p>
+                    <p class="testimonial-role">Média buyer, Accra</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Les 5 concepts créatifs... c'est genius. Je n'avais jamais pensé à structurer mes pubs comme ça. Tellement plus efficace."</p>
+                    <p class="testimonial-author">Amara K.</p>
+                    <p class="testimonial-role">Propriétaire de boutique e-commerce, Bamako</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"La partie sur la pollution de données COD... incroyable. Je nettoyais mes données en arrière et mes conversions réelles ont explosé."</p>
+                    <p class="testimonial-author">Nadia L.</p>
+                    <p class="testimonial-role">Gadget shop owner, Niamey</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Je l'ai partagé avec mon équipe. Chaque personne a compris Andromeda. C'est du contenu vraiment accessible et puissant."</p>
+                    <p class="testimonial-author">Hassan M.</p>
+                    <p class="testimonial-role">Chef de projet marketing, Ouagadougou</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Je pensais que je devais devenir 'Expert Facebook Ads'. Ce guide m'a montré que je dois juste être bon en créativité. Quel soulagement!"</p>
+                    <p class="testimonial-author">Salma B.</p>
+                    <p class="testimonial-role">Solo entrepreneur, Casablanca</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Le plan 7 jours est EXACT. J'ai suivi jour par jour et ma campagne a démarré proprement. Zéro dépense inutile."</p>
+                    <p class="testimonial-author">Youssef A.</p>
+                    <p class="testimonial-role">Dropshipper, Marrakech</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Révélation: je ne dois PAS cibler les 'riches' manuellement, ma vidéo le fait pour moi. Pourquoi personne ne dit ça?!"</p>
+                    <p class="testimonial-author">Awa G.</p>
+                    <p class="testimonial-role">Propriétaire de label beauté, Lome</p>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Le meilleur investissement '0 FCFA' que j'ai jamais fait. Du contenu premium donné librement. Je recommande à tout mon réseau."</p>
+                    <p class="testimonial-author">Ismaël D.</p>
+                    <p class="testimonial-role">Consultant en e-commerce, Porto-Novo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GUARANTEE -->
+        <div class="guarantee">
+            <h3>📌 Garantie de Qualité</h3>
+            <p>Ce guide n'est pas théorique. Chaque stratégie a été testée et validée sur le marché africain en 2025-2026.</p>
+            <p style="margin-top: 15px; color: #666; font-weight: normal;">Mis à jour pour la version Andromeda de Meta (décembre 2024 - janvier 2026)</p>
+        </div>
+
+        <!-- CALL TO ACTION -->
+        <div style="text-align: center; padding: 40px; background: white; border-radius: 12px; margin: 40px 0;">
+            <h2 style="color: #c41e2e; margin-bottom: 20px;">Prêt à dominer Andromeda?</h2>
+            <p style="font-size: 1.05rem; color: #555; margin-bottom: 25px;">
+                Téléchargez le Manuel de Survie Andromeda 2026 (52 pages) + Bonus gratuits
+            </p>
+            <button class="cta-button">TÉLÉCHARGER MAINTENANT - C'EST GRATUIT!</button>
+            <p style="margin-top: 20px; color: #999; font-size: 0.9rem;">
+                ✅ Pas de spam • ✅ Pas de crédit nécessaire • ✅ Accès immédiat
+            </p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p><strong>Le Manuel de Survie Andromeda 2026</strong></p>
+        <p>Créé par Momentum Media - Transformer votre Business en une vraie marque e-commerce</p>
+        <p style="margin-top: 20px; font-size: 0.85rem;">© 2026 - Tous droits réservés</p>
+        <p style="margin-top: 10px; font-size: 0.85rem;">+229 01 97 61 14 25</p>
+    </div>
+</body>
+</html>
