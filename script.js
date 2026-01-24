@@ -126,6 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Gestion de l'affichage progressif des images lazy load
     gererChargementImages();
+    
+    // Animation des compteurs de statistiques
+    animerCompteurs();
+    
+    // Simulation du compteur de téléchargements en temps réel
+    simulerActiviteEnTempsReel();
+    
+    // Afficher les notifications de téléchargement récent
+    afficherNotificationsTelechargement();
 });
 
 /**
@@ -258,4 +267,122 @@ function gererChargementImages() {
             image.addEventListener('error', marquerCommeChargee);
         }
     });
+}
+
+/**
+ * Anime les compteurs de statistiques avec un effet de comptage progressif
+ * Utilise l'Intersection Observer pour déclencher l'animation au scroll
+ */
+function animerCompteurs() {
+    const compteurs = document.querySelectorAll('.counter');
+    
+    const observerOptions = {
+        threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        entry.target.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        entry.target.textContent = target;
+                        entry.target.classList.add('counted');
+                    }
+                };
+                
+                updateCounter();
+            }
+        });
+    }, observerOptions);
+    
+    compteurs.forEach(compteur => observer.observe(compteur));
+}
+
+/**
+ * Simule l'activité en temps réel sur le site
+ * Incrémente le compteur de téléchargements et varie le nombre d'utilisateurs actifs
+ */
+function simulerActiviteEnTempsReel() {
+    const downloadCounter = document.getElementById('download-counter');
+    const activeUsers = document.getElementById('active-users');
+    
+    let downloads = 1247;
+    let users = 23;
+    
+    // Incrémenter les téléchargements toutes les 8-15 secondes
+    setInterval(() => {
+        downloads += Math.floor(Math.random() * 3) + 1;
+        downloadCounter.textContent = downloads.toLocaleString('fr-FR');
+        
+        // Animation de pulse sur le changement
+        downloadCounter.parentElement.classList.add('animate-pulse');
+        setTimeout(() => {
+            downloadCounter.parentElement.classList.remove('animate-pulse');
+        }, 500);
+    }, Math.random() * 7000 + 8000);
+    
+    // Varier le nombre d'utilisateurs actifs toutes les 3-6 secondes
+    setInterval(() => {
+        const variation = Math.floor(Math.random() * 7) - 3;
+        users = Math.max(15, Math.min(35, users + variation));
+        activeUsers.textContent = users;
+    }, Math.random() * 3000 + 3000);
+}
+
+/**
+ * Affiche des notifications popup de téléchargements récents
+ * Crée un effet de preuve sociale en montrant que d'autres téléchargent le guide
+ */
+function afficherNotificationsTelechargement() {
+    const notification = document.getElementById('recent-download');
+    const nameEl = document.getElementById('notification-name');
+    const locationEl = document.getElementById('notification-location');
+    const timeEl = document.getElementById('notification-time');
+    
+    const noms = [
+        { name: 'Jean D.', location: 'Côte d\'Ivoire' },
+        { name: 'Sarah K.', location: 'Sénégal' },
+        { name: 'Marc A.', location: 'Cameroun' },
+        { name: 'Amina M.', location: 'Mali' },
+        { name: 'Paul T.', location: 'Bénin' },
+        { name: 'Fatou S.', location: 'Burkina Faso' },
+        { name: 'Ibrahim K.', location: 'Niger' },
+        { name: 'Aïcha B.', location: 'Togo' }
+    ];
+    
+    const temps = ['Il y a 2 min', 'Il y a 5 min', 'Il y a 8 min', 'Il y a 12 min'];
+    
+    function afficherNotification() {
+        const personne = noms[Math.floor(Math.random() * noms.length)];
+        const temps_aleatoire = temps[Math.floor(Math.random() * temps.length)];
+        
+        nameEl.textContent = personne.name;
+        locationEl.textContent = personne.location;
+        timeEl.textContent = temps_aleatoire;
+        
+        // Afficher la notification
+        notification.classList.remove('opacity-0', 'pointer-events-none');
+        notification.classList.add('opacity-100', 'pointer-events-auto');
+        
+        // Masquer après 5 secondes
+        setTimeout(() => {
+            notification.classList.add('opacity-0', 'pointer-events-none');
+            notification.classList.remove('opacity-100', 'pointer-events-auto');
+        }, 5000);
+    }
+    
+    // Première notification après 10 secondes
+    setTimeout(afficherNotification, 10000);
+    
+    // Notifications suivantes toutes les 20-40 secondes
+    setInterval(afficherNotification, Math.random() * 20000 + 20000);
 }

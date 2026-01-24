@@ -79,12 +79,152 @@ button, a {
 /* Style pour les images en chargement */
 img {
     transition: opacity 0.3s ease;
+    opacity: 1;
 }
 
-img[loading="lazy"] {
-    opacity: 0;
+img[loading="lazy"]:not(.loaded) {
+    opacity: 0.9;
 }
 
 img[loading="lazy"].loaded {
     opacity: 1;
+}
+
+/* Animation de gradient pour le titre */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+/* Animation bounce lente pour WhatsApp */
+@keyframes bounce-slow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Effet glow vert pour la section Après */
+.glow-green {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+}
+
+.glow-green:hover {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
+}
+
+/* Animation de compteur */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.counter {
+    animation: countUp 1s ease-out;
+}
+
+/* Effet de pulsation pour les badges */
+@keyframes pulse-soft {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Animation pour les cartes de statistiques */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Curseur pointer sur les éléments interactifs */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Effet de brillance sur les boutons CTA */
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-glow:hover::before {
+    left: 100%;
+}
+
+/* Amélioration des transitions globales */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effet de focus amélioré */
+button:focus, a:focus {
+    outline: 2px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+}
+
+/* Animation de typing cursor */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+    margin-left: 2px;
 }
